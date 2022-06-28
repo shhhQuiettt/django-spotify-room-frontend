@@ -1,6 +1,3 @@
-* {
-    /* background-color: rgba(14,200,99, 0.2); */
-}
 .player {
     background-color: var(--clr-secondary);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -17,9 +14,6 @@
         align-items: center;
         width: 80vw;
     }
-     .player .wrapper {
-        /* background-color: red; */
-     }
     
 }
 

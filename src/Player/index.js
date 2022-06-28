@@ -33,7 +33,10 @@ const Player = () => {
               }}
             ></div>
           </div>
-          <div className="song-length">{currentTrack["duration_s"]}</div>
+          <div className="song-length">
+            {Math.floor(currentTrack["duration_s"] / 60)}:
+            {currentTrack["duration_s"] % 60}
+          </div>
         </div>
         <div className="control-panel">
           <button className="previous">
