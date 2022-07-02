@@ -1,10 +1,12 @@
-import Player from './Player';
-import "./index.css"
+import Player from "./components/Player";
+import CreateRoomForm from "./components/CreateRoomForm";
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-      <Player />
+      {/* <Player /> */}
+      <CreateRoomForm />
     </div>
   );
 }
