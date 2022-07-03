@@ -1,22 +1,26 @@
 import React from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
+import { createRoom } from "../../service";
 
 const CreateRoomForm = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("aaonsubmit");
+    createRoom(data);
   };
+  console.log("cosnowy");
 
   return (
     <form className="create-room-form" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="form-title">Create room</h2>
       <div className="input-wrapper">
-        <label htmlFor="votes_to_skip">
+        <label htmlFor="votes-to-skip">
           Votes to skip:
           <input
             type="number"
+            id="votes-to-skip"
             className="narrow-input"
             defaultValue={3}
             {...register("votes_to_skip", { required: true, min: 1 })}
@@ -48,7 +52,9 @@ const CreateRoomForm = () => {
           <span className="checkmark"></span>
         </label>
       </div>
-      <button type="submit">Create</button>
+      <button type="submit" data-testid="create-button">
+        Create
+      </button>
     </form>
   );
 };
