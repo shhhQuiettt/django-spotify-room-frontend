@@ -77,6 +77,8 @@
     justify-content: center;
     box-shadow: var(--shadow);
     cursor: pointer;
+    color: black;
+    margin: 0.5em;
 }
 
 .control-panel button:hover {
