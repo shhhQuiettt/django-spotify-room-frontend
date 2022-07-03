@@ -16,6 +16,7 @@ const Player = () => {
   const [currentTrack, setCurrentTrack] = useState(testData);
   const [currentSecond, setCurrentSecond] = useState(50);
 
+  // TODO: Make buttons :active state work on mobile
   return (
     <div className="player">
       <img src={currentTrack["album_cover_url"]} alt="" />

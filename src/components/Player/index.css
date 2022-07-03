@@ -1,6 +1,6 @@
 .player {
     background-color: var(--clr-secondary);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: var(--shadow);
     border-radius: 0.5em;
     display: flex;
     width: 600px;
@@ -75,11 +75,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: var(--shadow);
     cursor: pointer;
+    color: black;
+    margin: 0.5em;
 }
 
-.control-panel button:active {
+.control-panel button:hover {
     box-shadow: 0 0 0;
     border-width: 2.5px;
 }
