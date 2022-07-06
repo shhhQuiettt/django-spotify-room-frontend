@@ -5,17 +5,17 @@ import { joinRoom } from "../../service";
 import JoinRoomForm from ".";
 
 jest.mock("../../service");
-describe("Form does not submited when invalid data", () => {
+describe("Form not submited when invalid data", () => {
   test("when code is to short", async () => {
     const user = userEvent.setup();
     const { getByLabelText, getByText } = render(<JoinRoomForm />);
 
     await user.click(getByLabelText("Room code:"));
     await user.keyboard("1234");
-    console.log("value: " + getByLabelText("Room code:").value);
     await user.click(getByText("Join!"));
 
     expect(joinRoom).not.toBeCalled();
+    expect(getByText("Code is too short")).toBeInTheDocument();
   });
 });
 
@@ -26,7 +26,6 @@ describe("Form submited if valid data", () => {
 
     await user.click(getByLabelText("Room code:"));
     await user.keyboard("123456");
-    console.log("value: " + getByLabelText("Room code:").value);
     await user.click(getByText("Join!"));
 
     expect(joinRoom).toBeCalled();
@@ -38,7 +37,6 @@ describe("Form submited if valid data", () => {
 
     await user.click(getByLabelText("Room code:"));
     await user.keyboard("020202");
-    console.log("value: " + getByLabelText("Room code:").value);
     await user.click(getByText("Join!"));
 
     expect(joinRoom).toBeCalled();

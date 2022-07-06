@@ -11,7 +11,6 @@ const JoinRoomForm = () => {
   } = useForm({ reValidateMode: "onSubmit" });
 
   const onSubmit = (data) => {
-    console.log("f");
     joinRoom(data);
   };
 
