@@ -2,12 +2,14 @@ import Player from "./components/Player";
 import CreateRoomForm from "./components/CreateRoomForm";
 import "./index.css";
 import RoomCode from "./components/RoomCode";
+import JoinRoomForm from "./components/JoinRoomForm";
 
 function App() {
   return (
     <div className="App">
-      <RoomCode code="123456" />
-      <Player />
+      <JoinRoomForm />
+      {/* <RoomCode code="123456" />
+      <Player /> */}
       {/* <CreateRoomForm /> */}
     </div>
   );

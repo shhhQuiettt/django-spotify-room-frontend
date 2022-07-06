@@ -7,10 +7,8 @@ const CreateRoomForm = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log("aaonsubmit");
     createRoom(data);
   };
-  console.log("cosnowy");
 
   return (
     <form className="create-room-form" onSubmit={handleSubmit(onSubmit)}>
