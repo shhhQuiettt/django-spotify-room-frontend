@@ -3,7 +3,10 @@
     box-shadow: var(--shadow);
     border-radius: 0.5em;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 600px;
+    min-width: 350px;
     /* max-width: 900px; */
     padding: 2em ;
 }
@@ -14,17 +17,16 @@
         align-items: center;
         width: 80vw;
     }
-    
+    .player .wrapper {
+        min-width: 100%
+    }
 }
 
 
 
 .player img {
     width: 200px;
-}
-
-.player .song-title {
-    font-size: 32px;
+    height: 200px;
 }
 
 .player .wrapper {
@@ -33,11 +35,50 @@
     align-items: center;
     justify-content: center;
     gap: 1.5em;
-    /* width: 100%; */
     padding: 2em 1em;
-    width: 100%;
+    width: 60%;
     
 }
+
+.text-field-wrapper {
+    width:100%;
+}
+.player .song-title {
+    font-size: 32px;
+    margin:0;
+    text-align: center;
+}
+
+.player .song-artists {
+    font-size: 0.8em;
+
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player .song-artists span {
+    margin-right: 30px;
+    /* This makes scrollWidth work properly on chrome */
+    display: block;
+    position: relative;
+}
+.player .slided-text > span {
+    animation: slide-text 16s infinite linear;
+}
+
+/* TODO: Make prettier slide animation  */
+@keyframes slide-text {
+    5%{
+        transform: translateX(0%);
+    }
+   50%,55%{
+        transform: translateX(-100%);
+        right: 0;
+    }
+}
+
 
 .player .progress-panel {
     display: flex;

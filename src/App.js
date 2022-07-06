@@ -7,9 +7,9 @@ import JoinRoomForm from "./components/JoinRoomForm";
 function App() {
   return (
     <div className="App">
-      <JoinRoomForm />
-      {/* <RoomCode code="123456" />
-      <Player /> */}
+      {/* <JoinRoomForm /> */}
+      <RoomCode code="123456" />
+      <Player />
       {/* <CreateRoomForm /> */}
     </div>
   );
