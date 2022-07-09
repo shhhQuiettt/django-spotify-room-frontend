@@ -41,7 +41,7 @@ button:active {
   transform: scale(0.95);
 }
 
-form .error-field {
+.error-field {
   background-color: var(--clr-error);
   font-size: 0.7em;
   padding: 0.5em;

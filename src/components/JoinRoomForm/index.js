@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./index.css";
 import { joinRoom } from "../../service";
+import { useNavigate } from "react-router-dom";
 
 const JoinRoomForm = () => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("roomCode")) {
+      navigate("../room/", { replace: true });
+    }
+  }, []);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ reValidateMode: "onSubmit" });
 
+  const [error, setError] = useState(null);
   const onSubmit = (data) => {
-    joinRoom(data);
+    let err = joinRoom(data);
+    err && setError(err);
   };
 
   // TODO: Create error message
@@ -32,6 +42,7 @@ const JoinRoomForm = () => {
       {errors.code?.type === "maxLength" && (
         <div className="error-field">Code is too long</div>
       )}
+      {error && <div className="error-field">{error}</div>}
       <button type="submit">Join!</button>
     </form>
   );
