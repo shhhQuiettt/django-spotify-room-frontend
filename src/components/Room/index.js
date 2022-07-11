@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Room = ({ code }) => {
   let navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("roomCode")) {
+    if (!code) {
       navigate("../room/join", { replace: true });
     }
   }, []);
