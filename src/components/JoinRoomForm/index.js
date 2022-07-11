@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const JoinRoomForm = () => {
   let navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.hasOwnProperty("roomCode")) {
-      // navigate("../room/", { replace: true });
+    if (!localStorage.hasOwnProperty("roomCode")) {
+      navigate("../room/", { replace: true });
     }
   }, []);
 

@@ -8,7 +8,7 @@ const Room = ({ code }) => {
   let navigate = useNavigate();
   useEffect(() => {
     console.log(code);
-    if (localStorage.hasOwnProperty("roomCode")) {
+    if (!localStorage.hasOwnProperty("roomCode")) {
       navigate("../room/join", { replace: false });
     } else {
       console.log(code);
@@ -16,11 +16,10 @@ const Room = ({ code }) => {
   }, [code]);
 
   return (
-    <>
-      dsd
+    <div className="room">
       <RoomCode code={code} />
       <Player />
-    </>
+    </div>
   );
 };
 
