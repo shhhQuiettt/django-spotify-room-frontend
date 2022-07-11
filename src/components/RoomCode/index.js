@@ -15,6 +15,6 @@ const RoomCode = ({ code }) => {
 };
 
 RoomCode.propTypes = {
-  code: PropTypes.string,
+  code: PropTypes.string.isRequired,
 };
 export default RoomCode;

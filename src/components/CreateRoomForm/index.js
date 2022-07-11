@@ -2,12 +2,23 @@ import React from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
 import { createRoom } from "../../service";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateRoomForm = () => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.hasOwnProperty("roomCode")) {
+      navigate("../room/join", { replace: true });
+    }
+  }, []);
+
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    createRoom(data);
+  const [error, setError] = useState(null);
+  const onSubmit = async (data) => {
+    let err = await createRoom(data);
+    err?.message && setError(err.message);
   };
 
   return (
