@@ -4,6 +4,8 @@ import "./index.css";
 import JoinRoomForm from "./components/JoinRoomForm";
 import { Routes, Route, Link } from "react-router-dom";
 import Room from "./components/Room";
+import NavButtons from "./components/NavButtons";
+
 import { useState } from "react";
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/" element={<NavButtons />} />
         <Route path="/room" element={<Room code={roomCode} />} />
         <Route path="/room/join" element={<JoinRoomForm />} />
         <Route path="/room/create" element={<CreateRoomForm />} />

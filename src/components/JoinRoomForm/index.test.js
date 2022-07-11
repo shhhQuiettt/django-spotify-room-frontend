@@ -5,6 +5,11 @@ import { joinRoom } from "../../service";
 import JoinRoomForm from ".";
 
 jest.mock("../../service");
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => jest.fn(),
+}));
+
 describe("Form not submited when invalid data", () => {
   test("when code is to short", async () => {
     const user = userEvent.setup();

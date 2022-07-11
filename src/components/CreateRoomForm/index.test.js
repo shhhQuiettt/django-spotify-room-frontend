@@ -10,6 +10,10 @@ import { createRoom } from "../../service";
 import userEvent from "@testing-library/user-event";
 
 jest.mock("../../service");
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => jest.fn(),
+}));
 
 describe("form does not submit when not valid", () => {
   it("when vote-to-skip is empty", async () => {

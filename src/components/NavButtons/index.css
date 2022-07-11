@@ -1,4 +1,3 @@
-/*
 .nav-buttons  {
     background-color: red;
     display: flex;
@@ -13,6 +12,9 @@
 @media screen and (max-width: 600px) {
     .nav-buttons {
         flex-direction: column;
+    }
+    .nav-buttons button {
+        width: 80vw;
     }
 }
 

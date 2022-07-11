@@ -17,11 +17,14 @@ export const createRoom = async (roomData) => {
 
 export const joinRoom = async (roomCode) => {
   try {
-    const response = await axios.get("/api/room/" + roomCode, {
-      validateStatus: (status) => {
-        return status < 500;
-      },
-    });
+    const response = await axios.get(
+      "/api/room/" + roomCode
+      // {
+      //   validateStatus: (status) => {
+      //     return status < 500;
+      //   },
+      // }
+    );
     localStorage.setItem("roomCode", response.data.code);
     return null;
   } catch (error) {

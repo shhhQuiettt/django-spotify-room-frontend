@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const JoinRoomForm = () => {
   let navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem("roomCode")) {
-      navigate("../room/", { replace: true });
+    if (localStorage.hasOwnProperty("roomCode")) {
+      // navigate("../room/", { replace: true });
     }
   }, []);
 
@@ -19,9 +19,10 @@ const JoinRoomForm = () => {
   } = useForm({ reValidateMode: "onSubmit" });
 
   const [error, setError] = useState(null);
-  const onSubmit = (data) => {
-    let err = joinRoom(data);
-    err && setError(err);
+  const onSubmit = async (data) => {
+    let err = await joinRoom(data);
+    console.log(typeof err?.message);
+    err?.message && setError(err.message);
   };
 
   // TODO: Create error message

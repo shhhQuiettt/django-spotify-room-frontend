@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const CreateRoomForm = () => {
   let navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("roomCode")) {
+    if (!localStorage.hasOwnProperty("roomCode")) {
       navigate("../room/join", { replace: true });
     }
   }, []);
@@ -16,9 +16,9 @@ const CreateRoomForm = () => {
   const { register, handleSubmit } = useForm();
 
   const [error, setError] = useState(null);
-  const onSubmit = (data) => {
-    let err = createRoom(data);
-    err && setError(err);
+  const onSubmit = async (data) => {
+    let err = await createRoom(data);
+    err?.message && setError(err.message);
   };
 
   return (
