@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <GoBackButton />
       <h1>Spotify room app</h1>
-      <BsSpotify font-size={34} />
+      <BsSpotify fontSize={34} />
     </header>
   );
 };

@@ -7,16 +7,13 @@ import { useNavigate } from "react-router-dom";
 const Room = ({ code }) => {
   let navigate = useNavigate();
   useEffect(() => {
-    console.log(code);
     if (!localStorage.hasOwnProperty("roomCode")) {
-      navigate("../room/join", { replace: false });
-    } else {
-      console.log(code);
+      navigate("../room/join", { replace: true });
     }
   }, [code]);
 
   return (
-    <div className="room">
+    <div className="room" data-testid="room">
       <RoomCode code={code} />
       <Player />
     </div>

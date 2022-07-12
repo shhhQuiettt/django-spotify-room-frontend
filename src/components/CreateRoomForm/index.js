@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 const CreateRoomForm = () => {
   let navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.hasOwnProperty("roomCode")) {
-      navigate("../room/join", { replace: true });
+    if (localStorage.hasOwnProperty("roomCode")) {
+      navigate("../room", { replace: true });
     }
   }, []);
 
@@ -22,7 +22,11 @@ const CreateRoomForm = () => {
   };
 
   return (
-    <form className="create-room-form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="create-room-form"
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="create-room-form"
+    >
       <h2 className="form-title">Create room</h2>
       <div className="input-wrapper">
         <label htmlFor="votes-to-skip">

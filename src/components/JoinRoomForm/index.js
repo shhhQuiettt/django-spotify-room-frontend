@@ -21,13 +21,16 @@ const JoinRoomForm = () => {
   const [error, setError] = useState(null);
   const onSubmit = async (data) => {
     let err = await joinRoom(data);
-    console.log(typeof err?.message);
     err?.message && setError(err.message);
   };
 
   // TODO: Create error message
   return (
-    <form className="join-room-form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="join-room-form"
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="join-room-form"
+    >
       <h2 className="form-title">Join a room</h2>
       <label htmlFor="room-code">Room code:</label>
       <input

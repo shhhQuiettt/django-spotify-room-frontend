@@ -6,7 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") || document.createElement("div")
+);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
