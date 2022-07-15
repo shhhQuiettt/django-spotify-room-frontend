@@ -1,15 +1,17 @@
 import axios from "axios";
 
 export const createRoom = async (roomData) => {
-  console.log(roomData);
   try {
-    const response = await axios.post("/api/room/create", roomData, {
+    let response = await axios.post("/api/room/create", roomData, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
+    const authUrl = response.data.url;
     localStorage.setItem("roomCode", response.data.code);
+    window.location.replace(authUrl);
+
     return null;
   } catch (error) {
     console.log(error);
