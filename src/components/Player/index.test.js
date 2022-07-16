@@ -26,7 +26,7 @@ getTrack.mockImplementation(() => {
 });
 
 describe("Proper calls are made on players button", () => {
-  todo("When song is paused, play-pause button plays");
+  test.todo("When song is paused, play-pause button plays");
   // test("When song is paused, play-pause button plays", async () => {
   //   const user = userEvent.setup();
   //   // const setStateMock = jest.fn()

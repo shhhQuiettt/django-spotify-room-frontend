@@ -98,9 +98,10 @@ const Player = () => {
             </button>
             <button
               className="skip"
-              onChange={() => {
+              onClick={() => {
                 voteToSkip();
               }}
+              data-testid="skip-button"
             >
               <BsFillSkipEndFill />
             </button>
